@@ -9,7 +9,7 @@ def main():
     flights_df = pd.read_csv("../data/flights.csv")
     flights_df = flights_df.set_index("Fid")
 
-    header = ["Sid", "Fid", "Class", "Location", "Taken"]
+    header = ["Sid", "Fid", "Class", "Location", "Cost", "Taken"]
     classes = ["FIRST", "BUSINESS", "ECONOMY"]
     locations = ["WINDOW", "MIDDLE", "AISLE"]
     seats = []
@@ -20,7 +20,7 @@ def main():
             taken = random.choice([1, 1, 1, 1, 0])
             taken *= time.strptime(flights_df.loc[fid, 'FlightDate'], "%Y-%m-%d %X") < time.gmtime(tbefore + 39600)
 
-            seats.append([sid, fid, random.choice(classes), random.choice(locations), taken])
+            seats.append([sid, fid, random.choice(classes), random.choice(locations), random.randint(75, 400), taken])
 
     seats_df = pd.DataFrame(columns=header, data=seats)
     
