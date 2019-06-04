@@ -26,7 +26,7 @@ public class MainDriver {
 	        conn = DriverManager.getConnection(DBUrl, groupUser, groupPass);
 	        stmt = conn.createStatement();
             // calls go here
-	        getAllFlights(stmt);
+	        //getAllFlights(stmt);
 	        printHome(scan);
 	        //printHome();
             stmt.close();
@@ -46,12 +46,64 @@ public class MainDriver {
     	String options = "1. Login as customer\n2. Login as manager\n3. Exit";
     	System.out.println(options);
     	int input = takeInput(scan, 3, options);
-    	if (input == 1)
-    		System.out.println("Customer login chosen");
-    	else if (input== 2)
-    		System.out.println("Manager login chosen");
+    	ArrayList<Integer> ids;
+    	if (input == 1) {
+    		ids = getIds("Student");
+    		login(scan, "customer", ids);
+    		printCustomerOptions(scan);
+    	}
+    	else if (input== 2) {
+    		ids = getIds("Manager");
+    		login(scan, "manager", ids);
+    		printRevenueTable(scan);
+    	}
     	else
     		System.exit(0);
+    }
+    
+    public static ArrayList<Integer> getIds(String table) {
+    	ArrayList<Integer> ids = new ArrayList<Integer>();
+    	ids.add(1);
+    	ids.add(2);
+    	ids.add(3);
+    	return ids;
+    }
+    
+    public static void login(Scanner scan, String type, ArrayList<Integer> ids) {
+    	String prompt = "Enter your " + type + "ID: ";
+    	String input;
+    	do {
+    		System.out.print(prompt);
+    		input = scan.nextLine();
+    		if(input.matches("-?\\d+(\\.\\d+)?")) {
+    			int id = Integer.parseInt(input);
+    			if(true/*if the correct ID*/) {
+    				return;
+    			}
+    		}
+    		System.out.println("\nIncorrect ID, please enter your customer id below:\n");
+    		System.out.println(prompt);
+    	}
+    	while(input != null);
+    }
+    
+    public static void printCustomerOptions(Scanner scan) {
+    	String options = "1. Reserve a flight\n2. Cancel a reservation\n3. Change a reservation\n4. Back\n5. Exit";
+    	System.out.println(options);
+    	int input = takeInput(scan, 4, options);
+    	
+    	if (input == 1)
+    		System.out.println("Reserve a flight");
+    	else if (input== 2)
+    		System.out.println("Cancel a reservation");
+    	else if (input == 3)
+    		System.out.println("Change a reservation");
+    	else
+    		System.exit(0);
+    }
+    
+    public static void printRevenueTable(Scanner scan) {
+    	
     }
     
     //max is the largest option available (ex: for home page max would be 3)
