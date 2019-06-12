@@ -1,0 +1,36 @@
+/*
+ * History CSS Module
+ */
+
+.history_component{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.history_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-size: 1.5vw;
+    font-weight: 500;
+    background-color: var(--other_blue);
+    color: white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    margin-bottom: 5px;
+}
+
+.history_table{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 85%;
+    overflow-y: auto;
+    margin-bottom: 1%;
+}

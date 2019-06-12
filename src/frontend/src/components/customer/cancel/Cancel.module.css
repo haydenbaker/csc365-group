@@ -1,0 +1,56 @@
+/*
+ * Cancel CSS Module
+ */
+
+.cancel_component{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+ .cancel_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-size: 1.5vw;
+    font-weight: 500;
+    background-color: var(--other_blue);
+    color: white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.cancel_button{
+    text-align: center;
+    margin-bottom: 5%;
+    width: 50%;
+    height: 15%;
+    border-radius: 15px;
+    border: 2px solid var(--other_blue);
+    color: var(--dark_grey);
+    cursor: pointer; 
+}
+
+.cancel_button:hover{
+    background-color: var(--other_blue);
+    color: white;
+    box-shadow: 1px 5px 2px 1px var(--light_grey);
+}
+
+.cancel_button:focus{
+    background-color: var(--other_blue);
+    color: white;
+}
+
+.cancel_input{
+    height: 2rem !important;
+}
+
+.cancel_input:focus{
+    color: black;
+}

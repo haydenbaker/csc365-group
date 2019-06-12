@@ -1,0 +1,49 @@
+/*
+ * Status CSS Module
+ */
+
+.status_container{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 10vh;
+    border-radius: 15px;
+}
+
+.status_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3vw;
+    width: 20%;
+    height: 100%;
+    background-color: var(--other_blue);
+    color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.status_content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.changed_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+}

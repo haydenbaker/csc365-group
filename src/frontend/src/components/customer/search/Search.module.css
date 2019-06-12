@@ -1,0 +1,196 @@
+/*
+ * Search CSS Module
+ */
+
+.search_main{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+}
+
+.search_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 12%;
+    font-size: 1.5vw;
+    font-weight: bold;
+    border-bottom: 2px solid var(--other_blue);
+    margin-bottom: 20px;
+}
+
+.search_button{
+    text-align: center;
+    width: 30%;
+    height: 50%;
+    border-radius: 15px;
+    border: 2px solid var(--other_blue);
+    color: var(--dark_grey);
+    font-size: 1.3vw;
+    cursor: pointer; 
+}
+
+.search_button:hover{
+    background-color: var(--other_blue);
+    color: white;
+    box-shadow: 1px 5px 2px 1px var(--light_grey);
+}
+
+.search_button:focus{
+    background-color: var(--other_blue);
+    color: white;
+}
+
+.body_container{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.search_form{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+}
+
+.form_body{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;;
+}
+
+.form_1{
+    width: 40%;
+    height: 100%;
+}
+
+.form_label{
+    font-size: 1vw;
+}
+
+.form_input{
+    font-size: 12px !important;
+    height: 3rem !important;
+}
+
+.submit_button{
+    text-align: center;
+    width: 40%;
+    height: 10%;
+    border-radius: 15px;
+    background-color: var(--other_blue);
+    color: white;
+    font-size: 1.3vw;
+    cursor: pointer; 
+}
+
+.submit_button:hover{
+    background-color: var(--other_blue);
+    color: white;
+    box-shadow: 1px 5px 2px 1px var(--light_grey);
+}
+
+.submit_button:focus{
+    background-color: var(--other_blue);
+    color: white;
+}
+
+.search_list{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.seat_item{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 35%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.seat_item:nth-child(odd){
+    background-color: var(--overlay_blue);
+}
+
+.seat{
+    height: 60%;
+    width: 100%;
+}
+
+.seat_buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30%;;
+    width: 90%;
+}
+
+.reserve_button{
+    text-align: center;
+    width: 20%;
+    height: 65%;
+    border-radius: 15px;
+    background-color: var(--other_blue);
+    color: white;
+    font-size: 1vw;
+    font-weight: 500;
+    cursor: pointer; 
+    margin-right: 20px;
+}
+
+.reserve_button:hover{
+    background-color: var(--other_blue);
+    color: white;
+    box-shadow: 1px 3px 2px 1px var(--light_grey);
+}
+
+.reserve_button:focus{
+    background-color: var(--other_blue);
+    color: white;
+}
+
+.change_button{
+    text-align: center;
+    width: 20%;
+    height: 65%;
+    border-radius: 15px;
+    border: 2px solid var(--other_blue);
+    color: var(--dark_grey);
+    font-size: 1vw;
+    cursor: pointer; 
+}
+
+.change_button:hover{
+    background-color: var(--other_blue);
+    color: white;
+    box-shadow: 1px 3px 2px 1px var(--light_grey);
+}
+
+.change_button:focus{
+    background-color: var(--other_blue);
+    color: white;
+}
+
+
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
