@@ -1,3 +1,5 @@
+import com.sun.source.tree.Tree;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -126,10 +128,10 @@ public class MainDriver {
     }
     
     public static void getAllFlights(Statement stmt) throws SQLException {
-    	String sql = "SELECT * FROM Flight";
+    	String sql = "select distinct a.Airline, f.FlightNo, f.SourceAirport, f.DestAirport, f.FlightDate from Flight f left join Seat s using (fid) join Airline a using (Aid) where s.Taken = 0 and f.FlightDate > now() + interval 2 Hour order by a.Airline, f.FlightDate";
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()) {
-        	System.out.println(rs.getInt("Airline") + " " + rs.getInt("FlightNo") + " " + 
+        	System.out.println(rs.getString("Airline") + " " + rs.getInt("FlightNo") + " " +
         			rs.getString("SourceAirport") + " " + rs.getString("DestAirport") + " " 
         			+ rs.getString("FlightDate"));
         }
