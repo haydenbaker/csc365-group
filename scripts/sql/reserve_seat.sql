@@ -3,6 +3,7 @@ BEGIN
     DECLARE isTaken Integer DEFAULT NULL;
     DECLARE price INTEGER DEFAULT NULL;
     DECLARE credit_card INTEGER DEFAULT NULL;
+    DECLARE f_date DATETIME DEFAULT "1970-01-01 00:00:00";
     DECLARE EXIT HANDLER FOR NOT FOUND SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'some value not found while attempting to reserve flight.';
     
     SELECT Taken INTO isTaken FROM Seat WHERE Sid = seat_id;
@@ -11,6 +12,12 @@ BEGIN
 		SET MESSAGE_TEXT = 'Seat has already been reserved.';
 	END IF;
     
+	SELECT FlightDate INTO f_date FROM Seat, Flight WHERE Seat.Sid = seat_id and Seat.Fid = Flight.Fid;
+	IF TIMEDIFF(f_date, NOW()) < "02:00:00" THEN
+		SIGNAL SQLSTATE '45008'
+		SET MESSAGE_TEXT = 'Flight departs in less than 2 hours or is already departed.';
+	END IF;
+
     SELECT Cost INTO price FROM Seat WHERE Sid = seat_id;
     SELECT Cid INTO credit_card FROM Account WHERE AccId = acc_id;
 
