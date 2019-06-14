@@ -10,7 +10,7 @@ class StatusContent extends Component{
         if(error){
             return(
                 <div className={styles.content}>
-                    <div style={{color: 'red'}}>Insufficient Funds</div>
+                    <div style={{color: 'red'}}>Action Could Not Be Performed</div>
                     <i style={{color: 'red'}} className='material-icons'>block</i>
                 </div>
             )

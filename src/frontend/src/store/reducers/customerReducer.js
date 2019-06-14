@@ -29,14 +29,21 @@ const customerReducer = (state=initState, action=null) => {
                 flightHistory: action.flightHistory
             }
         case 'CANCEL_RESERVATION':
-            const Reservation = [action.Reservation]
+            var reservation = [action.Reservation]
+            var canceled = true
+            var cancelError = false
+            if(action.Reservation === ''){
+                reservation = []
+                canceled = false
+                cancelError = true
+            }
             return{
                 ...state,
-                didCancel: true,
+                didCancel: canceled,
                 didReserve: false,
                 didChange: false,
-                error: false,
-                newReservation: Reservation,
+                error: cancelError,
+                newReservation: reservation,
                 reload: !state.reload
             }
         case 'GET_SEATS':
@@ -53,26 +60,43 @@ const customerReducer = (state=initState, action=null) => {
                 isSearching: false
             }
         case 'RESERVE':
-            const newReservation = [action.newReservation]
+            var newReservation = [action.newReservation]
+            var reserved = true
+            var reserveError = false
+            console.log(action.newReservation)
+            if(action.newReservation === ''){
+                console.log("YES")
+                newReservation = []
+                reserved = false
+                reserveError = true 
+            }
             return{
                 ...state,
                 didCancel: false,
-                didReserve: true,
+                didReserve: reserved,
                 didChange: false,
-                error: false,
+                error: reserveError,
                 newReservation: newReservation,
                 reload: !state.reload,
                 isSearching: false
             }
         case 'CHANGE_RESERVATION':
-            const oldReservation = [action.oldReservation]
-            const changedReservation = [action.newReservation]
+            var oldReservation = [action.oldReservation]
+            var changedReservation = [action.newReservation]
+            var changed = true
+            var changeError = false
+            if(action.oldReservation === undefined){
+                oldReservation = []
+                changedReservation = []
+                changed = false
+                changeError = true
+            }
             return{
                 ...state,
                 didCancel: false,
                 didReserve: false,
-                didChange: true,
-                error: false,
+                didChange: changed,
+                error: changeError,
                 oldReservation: oldReservation,
                 newReservation: changedReservation,
                 reload: !state.reload,
